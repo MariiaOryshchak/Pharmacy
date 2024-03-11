@@ -5,23 +5,24 @@
     <meta name="description" content="Інформація про категорії товарів">
     <meta name="author" content="Марія Орищак">
     <title>Аптека - Категорії</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body style="background-color: #ffffff; font-family: Arial, sans-serif; margin: 0; padding: 0;">
-    <div style="background-color: #ffffff; padding: 20px;">
-        <h1 style="margin-top: 0;">Аптека</h1>
-        <nav>
-            <a href="index.html">Головна</a> |
-            <a href="categories.html">Категорії</a> |
-            <a href="delivery.html">Доставка</a> |
-            <a href="contact.html">Контакти</a>
-        </nav>
-    </div>
-    <div style="padding: 20px;">
-        <h2>Категорії</h2>
+<body class="BODY">
+    <div class="menu">
+        <button class="toggle-menu">Меню</button>
+        <ul class="popup-menu">
+            <li><a href="index.html">Головна</a></li>
+            <li><a href="categories.html">Категорії</a></li>
+            <li><a href="delivery.html">Доставка</a></li>
+            <li><a href="contact.html">Контакти</a></li>
+        </ul>
+    </div>        
+    <div class="container">
+        <h1 class="HN">Категорії</h1>
         <p>Тут буде представлений асортимент категорій товарів.</p>
-        <table border="1" cellspacing="0" cellpadding="5" style="background-color: #fff; width: 100%;">
+        <table>
             <caption>Категорії товарів</caption>
-            <thead style="background-color: #ccc;">
+            <thead>
                 <tr>
                     <th>Назва категорії</th>
                     <th>Опис</th>
@@ -30,24 +31,28 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Категорія 1</td>
-                    <td>Опис категорії 1</td>
-                    <td><a href="category1.html">Перейти</a></td>
+                    <td rowspan="2" valign="top">Медикаменти</td>
+                    <td>Ліки від алергії</td>
+                    <td rowspan="1"><a href="categoryalergia.html">Перейти</a></td>
                 </tr>
                 <tr>
-                    <td>Категорія 2</td>
-                    <td>Опис категорії 2</td>
+                    <td>Захворювання шкіри, рани</td>
+                    <td rowspan="1"><a href="category4.html">Перейти</a></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Доглядова косметика</td>
                     <td><a href="category2.html">Перейти</a></td>
                 </tr>
                 <tr>
-                    <td>Категорія 3</td>
-                    <td>Опис категорії 3</td>
+                    <td>Дитячі товари</td>
+                    <td>Товари для ваших малюків</td>
                     <td><a href="category3.html">Перейти</a></td>
                 </tr>
             </tbody>
         </table>
+        <p style="font-weight: bold;">Не соромтеся звертатися до нас за допомогою. Ми завжди раді вам допомогти вибрати необхідні товари.</p>
     </div>
-    <div style="background-color: #ffffff; padding: 20px;">
+    <div class="footer">
         <p>&copy; 2024 Pharmacy. All rights reserved.</p>
     </div>
 </body>

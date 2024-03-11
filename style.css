@@ -1,0 +1,184 @@
+/* Стилі для шрифтів */
+body {
+    font-family: Arial, sans-serif; /* встановлення шрифта */
+    font-size: 16px; /* розмір шрифту */
+    color: #333; /* колір тексту */
+}
+
+/* Стилі для заголовка */
+.HN {
+    font-size: 24px;
+    color: #333; 
+    font-style: italic;
+    line-height: 1.5; /* міжрядковий інтервал */
+    text-align: center;
+}
+
+/* Стилі для тіла */
+.BODY {
+    font-size: 16px;
+    color: #555; /* темно-сірий колір тексту */
+    line-height: 1.6; /* міжрядковий інтервал */
+    text-align: left;
+    background-color: #f2f2f2; /* світло-сірий колір фону */
+}
+
+/* Застосування стилю рівня документу для перевизначення стилю посилань */
+BODY a {
+    color: #007bff ; /* синій колір посилань  */
+    text-decoration: none !important; /* відміна декорації тексту з оголошенням !important */
+}
+
+BODY a:hover {
+    color: #00356e !important; /* змінюємо колір при наведенні курсора з оголошенням !important */
+    text-decoration: underline !important; /* Додаємо підкреслення при наведенні курсора з оголошенням !important */
+}
+
+/* Стилі для попап-меню */
+.popup-menu {
+    display: none;
+    position: fixed;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 0; 
+}
+
+.menu:hover .popup-menu {
+    display: block;
+}
+
+.menu {
+    position: relative;
+    display: inline-block;
+    margin: 0; 
+}
+
+.toggle-menu {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.popup-menu li {
+    list-style-type: none;
+}
+
+.popup-menu li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.popup-menu li a:hover {
+    color: #007bff;
+}
+
+/* Стилі для контейнера */
+.container {
+    width: 100%; /* Ширина контейнера */
+    max-width: 1200px; /* Максимальна ширина контейнера */
+    margin: 0 auto; /* Вирівнювання по центру */
+    padding: 0 15px; /* Внутрішні відступи */
+    /* Додайте інші стилі, які вам потрібні для класу container */
+}
+
+/* Стилі для колонтитула */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    z-index: 999;
+    display: none; /* Схований колунтитул за замовчуванням */
+}
+
+/* Стилі для маркованих списків */
+ul {
+    list-style-type: disc; /* встановлює кружечки */
+    margin-bottom: 15px; /* відступ від нижнього краю списку */
+    color: #333; /* колір тексту */
+}
+
+/* Стилі для нумерованих списків */
+ol {
+    list-style-type: decimal; /* встановлює нумерацію */
+    margin-bottom: 15px; /* відступ від нижнього краю списку */
+    color: #333; /* колір тексту */
+}
+
+/* Стилі для елементів списку */
+ul li,
+ol li {
+    margin-bottom: 10px; /* відступ між елементами списку */
+    font-size: 16px; /* розмір шрифту */
+}
+
+/* Стилі для списку визначень */
+dl {
+    margin-bottom: 15px; /* відступ від нижнього краю списку */
+}
+
+/* Стилі для термінів у списку визначень */
+dt {
+    font-weight: bold; /* жирний шрифт для термінів */
+    color: #0066cc; /* колір тексту */
+}
+
+/* Стилі для описів у списку визначень */
+dd {
+    margin-left: 20px; /* відступ від лівого краю */
+}
+
+/* Стилі для таблиць */
+table {
+    width: 100%; /* ширина таблиці на всю ширину контейнера */
+    border-collapse: collapse; /* об'єднання меж */
+    margin-bottom: 15px; /* відступ від нижнього краю таблиці */
+}
+
+/* Стилі для заголовків таблиць і клітинок */
+th {
+    padding: 10px; /* внутрішні відступи в клітинках */
+    border: 1px solid #ddd; /* сіра межа */
+    background-color: #aeaeae; /* темно-сірий фон для заголовків таблиць */
+    font-weight: bold; /* жирний шрифт */
+}
+
+/* Стилі для клітинок таблиць */
+td {
+    padding: 10px; /* внутрішні відступи в клітинках */
+    border: 1px solid #ddd; /* сіра межа */
+    font-size: 14px; /* розмір шрифту */
+}
+
+
+/* Стилі для плаваючого фрейму */
+.float-frame {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px;
+}
+
+/* Стилі для контейнера з логотипом */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Додано відступ вниз для розділення між логотипом і текстом */
+}
+
+#unique-heading {
+    font-size: 36px; /* розмір шрифту */
+    text-align: center; /* вирівнювання по центру */
+    color: #000000; /* колір тексту чорний */
+    font-weight: bold; /* жирний шрифт */
+}

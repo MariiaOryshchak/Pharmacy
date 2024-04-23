@@ -22,7 +22,6 @@
     margin: 0 0 10px;
 }
 
-/* Стилі для заголовка */
 .HN {
     font-size: 24px;
     color: #333; 
@@ -30,8 +29,13 @@
     line-height: 1.5; 
     text-align: center;
 }
-
-/* Стилі для тіла */
+.HN6 {
+    font-size: 20px;
+    color: #333; 
+    font-style: italic;
+    line-height: 1.5; 
+    text-align: center;
+}
 .BODY {
     font-size: 16px;
     color: #555; 
@@ -40,7 +44,6 @@
     background-color: #f2f2f2; 
 }
 
-/* Стилі для блоку .menu та попап-меню */
 .menu {
     position: relative;
     display: inline-block;
@@ -56,7 +59,6 @@
     border-radius: 5px;
 }
 
-/* Стилі для попап-меню */
 .menu:hover .popup-menu {
     display: block;
 }
@@ -89,71 +91,57 @@
 .logo-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px; /* Додано відступ */
+    margin-bottom: 20px; 
 }
 
 a {
     text-decoration: none; 
 }
 
-/* Підкреслення для посилань при наведенні */
 a:hover {
     text-decoration: underline;
+    color: #2e0b80; 
 }
 
-/* Кольори посилань в різних станах */
 a:link {
-    color: #007bff; /* Стандартний колір */
+    color: #007bff; 
 }
 
 a:visited {
-    color: #4CAF50; /* Відвідані посилання */
-}
-
-a:hover {
-    color: #2e0b80; /* Під час наведення */
+    color: #4CAF50; 
 }
 
 a:active {
-    color: #ff1505; /* Натискання */
+    color: #ff1505; 
 }
 
-/* Стилі для першого елемента списку */
 th:first-child {
     font-style: italic;
 }
 
-/* Додаткові стилі для рядкових елементів */
-span.highlight {
-    background-color: yellow;
-    font-weight: bold;
-}
-
-/* Додаткові стилі для заголовка */
 #unique-heading {
-    font-size: 36px; /* розмір шрифту */
-    text-align: center; /* вирівнювання по центру */
-    color: #000000; /* колір тексту чорний */
-    font-weight: bold; /* жирний шрифт */
+    font-size: 36px; 
+    text-align: center; 
+    color: #000000; 
+    font-weight: bold; 
 }
 #unique-heading:before {
-    content: "\2022"; /* Unicode для крапки */
-    margin-right: 10px; /* Відступ між декоративним елементом і текстом */
-    color: #000000; /* Колір декоративного елемента */
+    content: "\2022"; 
+    margin-right: 10px; 
+    color: #000000; 
 }
 
 #unique-heading:after {
-    content: "\2022"; /* Unicode для крапки */
-    margin-left: 10px; /* Відступ між текстом і декоративним елементом */
-    color: #000000; /* Колір декоративного елемента */
+    content: "\2022"; 
+    margin-left: 10px; 
+    color: #000000; 
 }
 
-/* Стилі для контейнера */
 .container {
-    width: 100%; /* Ширина контейнера */
-    max-width: 1200px; /* Максимальна ширина контейнера */
-    margin: 0 auto; /* Вирівнювання по центру */
-    padding: 0 15px; /* Внутрішні відступи */
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 15px; 
 }
 
 /* Стилі для футера */
@@ -170,63 +158,54 @@ span.highlight {
     display: none; /* Схований футер за замовчуванням */
 }
 
-/* Стилі для маркованих списків */
 ul {
-    list-style-type: disc; /* встановлює кружечки */
-    margin-bottom: 15px; /* відступ від нижнього краю списку */
-    color: #333; /* колір тексту */
+    list-style-type: disc; 
+    margin-bottom: 15px; 
+    color: #333; 
 }
 
-/* Стилі для нумерованих списків */
 ol {
-    list-style-type: decimal; /* встановлює нумерацію */
-    margin-bottom: 15px; /* відступ від нижнього краю списку */
-    color: #333; /* колір тексту */
+    list-style-type: decimal; 
+    margin-bottom: 15px; 
+    color: #333; 
 }
 
-/* Стилі для елементів списку */
 ul li,
 ol li {
-    margin-bottom: 10px; /* відступ між елементами списку */
-    font-size: 16px; /* розмір шрифту */
+    margin-bottom: 10px; 
+    font-size: 16px; 
 }
 
-/* Стилі для списку визначень */
 dl {
-    margin-bottom: 15px; /* відступ від нижнього краю списку */
+    margin-bottom: 15px; 
 }
 
-/* Стилі для термінів у списку визначень */
 dt {
-    font-weight: bold; /* жирний шрифт для термінів */
-    color: #0066cc; /* колір тексту */
+    font-weight: bold; 
+    color: #0066cc; 
 }
 
-/* Стилі для описів у списку визначень */
 dd {
-    margin-left: 20px; /* відступ від лівого краю */
+    margin-left: 20px; 
 }
 
-/* Стилі для таблиць */
 table {
-    width: 100%; /* ширина таблиці на всю ширину контейнера */
-    border-collapse: collapse; /* об'єднання меж */
-    margin-bottom: 15px; /* відступ від нижнього краю таблиці */
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-bottom: 15px; 
 }
 
-/* Стилі для заголовків таблиць і клітинок */
 th {
-    padding: 10px; /* внутрішні відступи в клітинках */
-    border: 1px solid #ddd; /* сіра межа */
-    background-color: #aeaeae; /* темно-сірий фон для заголовків таблиць */
-    font-weight: bold; /* жирний шрифт */
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    background-color: #aeaeae; 
+    font-weight: bold; 
 }
 
-/* Стилі для клітинок таблиць */
 td {
-    padding: 10px; /* внутрішні відступи в клітинках */
-    border: 1px solid #ddd; /* сіра межа */
-    font-size: 14px; /* розмір шрифту */
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    font-size: 14px; 
 }
 
 

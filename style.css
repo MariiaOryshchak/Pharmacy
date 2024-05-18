@@ -1,6 +1,6 @@
 .float-frame {
     float: right;
-    position: fixed;
+    position: absolute;
     text-align: center;
     bottom: 20px;
     right: 20px;
@@ -17,6 +17,7 @@
     margin-top: 0;
     text-align: center; 
 }
+
 
 .float-frame p {
     margin: 0 0 10px;
@@ -57,11 +58,12 @@
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+    position: fixed; /* Робимо кнопку меню фіксованою */
+    top: 20px; /* Встановлюємо відступ зверху */
+    left: 20px; /* Встановлюємо відступ зправа */
+    z-index: 999; /* Забезпечуємо, що кнопка завжди буде на передньому плані */
 }
 
-.menu:hover .popup-menu {
-    display: block;
-}
 
 .popup-menu {
     display: none;
@@ -69,9 +71,18 @@
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 10px;
-    margin: 0; 
+    margin: 0;
     z-index: 999;
+    top: 40px; 
+    left: 20px;
 }
+
+
+.popup-menu.fixed {
+    position: fixed;
+    top: 80px; 
+}
+
 
 .popup-menu li {
     list-style-type: none;
@@ -85,6 +96,7 @@
 .popup-menu li a:hover {
     color: #007bff;
 }
+
 
 
 /* Стилі для контейнера з логотипом */
@@ -144,19 +156,23 @@ th:first-child {
     padding: 0 15px; 
 }
 
-/* Стилі для футера */
 .footer {
-    position: fixed;
+    position: relative; /* Змінено на fixed, щоб футер залишався внизу сторінки */
     left: 0;
     bottom: 0;
     width: 100%;
+    max-width: 100%; /* Збільшено максимальну ширину */
     background-color: #333;
     color: #fff;
     padding: 20px;
     text-align: center;
     z-index: 999;
-    display: none; /* Схований футер за замовчуванням */
+    display: none;
 }
+
+
+
+
 
 ul {
     list-style-type: disc; 
@@ -210,3 +226,94 @@ td {
 
 
 
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Зменшена ширина блоків продуктів */
+.product {
+    width: calc(50% - 10px); /* Ширина блоку продукту (половина відступу між продуктами) */
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.product img {
+    display: block;
+    margin: 0 auto 10px; /* Вирівнюємо зображення по центру та додаємо відступ знизу */
+}
+
+.product p {
+    margin: 0 0 5px;
+}
+
+.product button {
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+    background-color: #0056b3; /* Змінюємо колір кнопки при наведенні курсора */
+}
+
+
+.cart-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.cart {
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    width: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.cart h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.cart ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.cart li {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart li .remove-item {
+    color: red;
+    cursor: pointer;
+}
+
+.click_color {
+    background-color: rgb(255, 255, 193); 
+    color: red; 
+    font-weight: bold; 
+}

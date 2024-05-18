@@ -9,15 +9,21 @@
     
 </head>
 <body class="BODY">
-    <div class="menu">
-        <button class="toggle-menu">Меню</button>
+    <button data-toggle-id="menu">
+        Показати/Сховати меню
+    </button>
+    
+    <div id="menu" class="menu" data-behavior="menu">
+        <button class="toggle-menu" onclick="toggleMenu()">Меню</button>
         <ul class="popup-menu">
-            <li><a href="index.html#home">Головна</a></li>
-            <li><a href="categories.html">Категорії</a></li>
-            <li><a href="delivery.html">Доставка</a></li>
-            <li><a href="contact.html">Контакти</a></li>
+            <li><button data-action="goHome">Головна</button></li>
+            <li><button data-action="showCategories">Категорії</button></li>
+            <li><button data-action="showDelivery">Доставка</button></li>
+            <li><button data-action="showContact">Контакти</button></li>
         </ul>
     </div>
+    
+    
     <div class="container">
         <h1 id="unique-heading" class="HN">Ласкаво просимо на головну сторінку!</h1>
         <div class="logo-container">
@@ -25,7 +31,7 @@
                 <img src="images/logo.png" alt="Pharmacy Logo" width="150" height="150">
             </a>
         </div>          
-        <p>Для перегляду наших товарів перейдіть на сторінку <button id="redirectButton">категорій</button>.</p>
+        <p>Для перегляду наших товарів перейдіть на сторінку <a href="categories.html">категорій</a>.</p>
         <p>Якщо вам потрібна допомога з доставкою, відвідайте <a href="delivery.html">сторінку доставки</a>.</p>
         <p>Для зв'язку з нами, будь ласка, перейдіть на сторінку <a href="contact.html">контактів</a>.</p>
         <h3>Популярні категорії</h3>
@@ -34,15 +40,45 @@
             <li>Вітаміни</li>
             <li>Медична косметика</li>
         </ul>
-        <h6 id="home" class="HN6">Об'єкт для стоврення нових елементів</h6>
-        <h6 id="home1" class="HN6">Об'єкт для видалення елемента</h6>
     </div>
+
+
+    <div class="container">
+    
+        <h3>Нові надходження</h3>
+        <p>Перегляньте наші останні товари та пропозиції:</p>
+        <div class="product-list">
+            <div class="product">
+                <img src="images/product1.jpg" alt="Product 1" width="100" height="100">
+                <p data-product-id="product1">Відеїн</p>
+                <p>Ціна: 200₴</p>
+                <p>Опис: Відеїн капсули м'як. по 100 мкг (4000 МО) №30 (10х3)</p>
+                <button>Додати в кошик</button>
+            </div>            
+            <div class="product">
+                <img src="images/product2.jpg" alt="Product 2" width="100" height="100">
+                <p>Аскорбінка</p>
+                <p>Ціна: 10₴</p>
+                <p>Опис: Аскорбінка-КВ таблетки зі смак. полун. по 25 мг №10 в етикет.</p>
+                <button>Додати в кошик</button>
+            </div>
+        </div>
+    </div>
+    <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
+
+    <div class="cart" id="cart">
+        <h2>Кошик</h2>
+        <ul id="cart-items">
+        </ul>
+    </div>
+
     <div class="float-frame">
         <h2>Контактна інформація</h2>
         <p>Телефон: 123-456-7890</p>
         <p>Адреса: вул. Проспект, 123</p>
         <p>Час роботи: пн-пт: 8:00-21:00, сб-нд: 10:00-19:00</p>
-    </div>    
+    </div> 
+
     <div class="footer">
         <p>&copy; 2024 Pharmacy. All rights reserved.</p>
         <h5>Made by Mariia Oryshchak, IK-24, FICE</h5>
@@ -56,16 +92,14 @@
         } else {
             alert("На жаль, ви скасували введення. Будь ласка, зайдіть знову, коли будете готові.");
         }
-        var confirmation = confirm("Ви впевнені, що хочете продовжити перегляд нашого сайту?");
-        if (confirmation) {
-            alert("Дякуємо, що залишаєтесь з нами!");
-        } else {
-            alert("Розумію, можливо, ви повернетеся пізніше. Дякуємо за відвідування!");
-        }
-        function redirectToCategoriesPage() {
-            location.assign("categories.html");
-        }
-        document.getElementById("redirectButton").addEventListener("click", redirectToCategoriesPage);
+        document.addEventListener('click', function(event) {
+            let id = event.target.dataset.toggleId;
+            if (!id) return;
+
+            let elem = document.getElementById(id);
+            elem.hidden = !elem.hidden;
+        });
+
     </script>
 </body>
 </html>

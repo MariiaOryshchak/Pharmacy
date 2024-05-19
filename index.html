@@ -6,14 +6,23 @@
     <meta name="author" content="Mariia Oryshchak">
     <title>Pharmacy</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    
+    <style>
+        .draggable {
+            width: 100px;
+            height: 100px;
+            background-color: #f0f0f0;
+            border: 2px solid #ccc;
+            position: absolute;
+            cursor: grab;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>    
 </head>
 <body class="BODY">
-    <button data-toggle-id="menu">
-        Показати/Сховати меню
-    </button>
-    
-    <div id="menu" class="menu" data-behavior="menu">
+    <div class="menu" data-behavior="menu">
         <button class="toggle-menu" onclick="toggleMenu()">Меню</button>
         <ul class="popup-menu">
             <li><button data-action="goHome">Головна</button></li>
@@ -22,7 +31,6 @@
             <li><button data-action="showContact">Контакти</button></li>
         </ul>
     </div>
-    
     
     <div class="container">
         <h1 id="unique-heading" class="HN">Ласкаво просимо на головну сторінку!</h1>
@@ -41,7 +49,7 @@
             <li>Медична косметика</li>
         </ul>
     </div>
-
+    <div class="draggable" id="draggableElement">Тут могла бути Ваша реклама</div>
 
     <div class="container">
     
@@ -78,7 +86,7 @@
         <p>Адреса: вул. Проспект, 123</p>
         <p>Час роботи: пн-пт: 8:00-21:00, сб-нд: 10:00-19:00</p>
     </div> 
-
+    
     <div class="footer">
         <p>&copy; 2024 Pharmacy. All rights reserved.</p>
         <h5>Made by Mariia Oryshchak, IK-24, FICE</h5>
@@ -92,13 +100,6 @@
         } else {
             alert("На жаль, ви скасували введення. Будь ласка, зайдіть знову, коли будете готові.");
         }
-        document.addEventListener('click', function(event) {
-            let id = event.target.dataset.toggleId;
-            if (!id) return;
-
-            let elem = document.getElementById(id);
-            elem.hidden = !elem.hidden;
-        });
 
     </script>
 </body>

@@ -1,64 +1,110 @@
-// Використання методу querySelectorAll
-var headings = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
-headings.forEach(function(heading) {
-    heading.style.color = "dark grey";
-});
-
-var menuButton = document.querySelector('.toggle-menu');
-var popupMenu = document.querySelector('.popup-menu');
-
-function toggleMenu() {
-    var popupMenu = document.querySelector('.popup-menu');
-    if (popupMenu.style.display === 'block') {
-        popupMenu.style.display = 'none';
-    } else {
-        popupMenu.style.display = 'block';
-    }
-}
-
-
-
-popupMenu.addEventListener('mouseover', function(event) {
-    var hoveredElement = event.target;
-    if (hoveredElement.tagName === 'A') {
-        hoveredElement.style.color = 'red';
-    }
-});
-
-popupMenu.addEventListener('mouseout', function(event) {
-    var unhoveredElement = event.target;
-    if (unhoveredElement.tagName === 'A') {
-        unhoveredElement.style.color = ''; 
-    }
-});
-
-var objHandler = {
-    handleEvent: function(event) {
-        alert("Подія на елементі: " + event.currentTarget.tagName);
-    }
-};
-
-var uniqueHeading = document.getElementById("unique-heading");
-uniqueHeading.addEventListener('click', objHandler);
-
-setTimeout(function() {
-    uniqueHeading.removeEventListener('click', objHandler);
-}, 10000); 
 
 document.addEventListener("DOMContentLoaded", function() {
-    const popularCategories = document.querySelector(".container ul");
+    var headings = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+    headings.forEach(function(heading) {
+        heading.style.color = "black";
+        
+        heading.addEventListener('mouseover', function(event) {
+            console.log("Мишка наведена на елемент:", event.target);
+            console.log("Мишка прийшла з елемента:", event.relatedTarget);
+            event.target.style.color = "blue"; 
+        });
+        
+        heading.addEventListener('mouseout', function(event) {
+            console.log("Мишка покинула елемент:", event.target);
+            console.log("Мишка перейшла на елемент:", event.relatedTarget);
+            event.target.style.color = "black"; 
+        });
+    });
 
-    popularCategories.addEventListener("click", function(event) {
-        if (event.target.tagName === "LI") {
-            if (event.target.classList.contains("click_color")) {
-                event.target.classList.remove("click_color");
-            } else {
-                event.target.classList.add("click_color");
+
+    var menuButton = document.querySelector('.toggle-menu');
+    var popupMenu = document.querySelector('.popup-menu');
+
+    function toggleMenu() {
+        var popupMenu = document.querySelector('.popup-menu');
+        if (popupMenu.style.display === 'block') {
+            popupMenu.style.display = 'none';
+        } else {
+            popupMenu.style.display = 'block';
+        }
+    }
+    menuButton.addEventListener('click', toggleMenu);
+
+
+    popupMenu.addEventListener('mouseover', function(event) {
+        var hoveredElement = event.target;
+        if (hoveredElement.tagName === 'A') {
+            hoveredElement.style.color = 'red';
+        }
+    });
+
+    popupMenu.addEventListener('mouseout', function(event) {
+        var unhoveredElement = event.target;
+        if (unhoveredElement.tagName === 'A') {
+            unhoveredElement.style.color = ''; 
+        }
+    });
+
+    var objHandler = {
+        handleEvent: function(event) {
+            alert("Подія на елементі: " + event.currentTarget.tagName);
+        }
+    };
+
+    var uniqueHeading = document.getElementById("unique-heading");
+    uniqueHeading.addEventListener('click', objHandler);
+
+    setTimeout(function() {
+        uniqueHeading.removeEventListener('click', objHandler);
+    }, 10000); 
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const popularCategories = document.querySelector(".container ul");
+
+        popularCategories.addEventListener("click", function(event) {
+            if (event.target.tagName === "LI") {
+                if (event.target.classList.contains("click_color")) {
+                    event.target.classList.remove("click_color");
+                } else {
+                    event.target.classList.add("click_color");
+                }
             }
+        });
+    });
+
+    // Додаємо обробник події прокрутки до вікна
+    window.addEventListener("scroll", function() {
+        var scrollTop = window.scrollY;
+        if (scrollTop >= 0) {
+            popupMenu.classList.add('fixed'); 
+        } else {
+            popupMenu.classList.remove('fixed'); 
+        }
+    });
+
+    var footer = document.querySelector('.footer');
+    var bottomReached = false;
+
+    window.addEventListener("scroll", function() {
+        var scrollTop = window.scrollY;
+        var windowHeight = window.innerHeight;
+        var documentHeight = document.body.clientHeight;
+        var footerHeight = footer.offsetHeight;
+
+        if (scrollTop + windowHeight >= documentHeight - footerHeight) {
+            bottomReached = true;
+        } else {
+            bottomReached = false;
+        }
+
+        if (bottomReached) {
+            footer.style.display = 'block';
+        } else {
+            footer.style.display = 'none';
         }
     });
 });
-
 
 document.addEventListener("DOMContentLoaded", function() {
     const menu = document.querySelector('[data-behavior="menu"]');
@@ -90,41 +136,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
-
-
-
-// Додаємо обробник події прокрутки до вікна
-window.addEventListener("scroll", function() {
-    var scrollTop = window.scrollY;
-    if (scrollTop >= 0) {
-        popupMenu.classList.add('fixed'); 
-    } else {
-        popupMenu.classList.remove('fixed'); 
-    }
-});
-
-var footer = document.querySelector('.footer');
-var bottomReached = false;
-
-window.addEventListener("scroll", function() {
-    var scrollTop = window.scrollY;
-    var windowHeight = window.innerHeight;
-    var documentHeight = document.body.clientHeight;
-    var footerHeight = footer.offsetHeight;
-
-    if (scrollTop + windowHeight >= documentHeight - footerHeight) {
-        bottomReached = true;
-    } else {
-        bottomReached = false;
-    }
-
-    if (bottomReached) {
-        footer.style.display = 'block';
-    } else {
-        footer.style.display = 'none';
-    }
-});
-
 
 //Реалізація кошика
 let cartOpen = false;
@@ -172,6 +183,36 @@ addToCartButtons.forEach(function(button) {
         var productId = this.parentElement.querySelector('p:first-of-type').getAttribute('data-product-id'); 
         alert('Ви додали товар "' + productName + '" до кошика.');
         addToCart(productName, productId); 
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const draggableElement = document.getElementById('draggableElement');
+
+    let offsetX = 0;
+    let offsetY = 0;
+    let isDragging = false;
+
+    draggableElement.addEventListener('mousedown', function(event) {
+        isDragging = true;
+        offsetX = event.clientX - draggableElement.getBoundingClientRect().left;
+        offsetY = event.clientY - draggableElement.getBoundingClientRect().top;
+        draggableElement.style.cursor = 'grabbing';
+        event.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(event) {
+        if (isDragging) {
+            draggableElement.style.left = (event.clientX - offsetX) + 'px';
+            draggableElement.style.top = (event.clientY - offsetY + window.scrollY) + 'px';
+        }
+    });
+
+    document.addEventListener('mouseup', function(event) {
+        if (isDragging) {
+            isDragging = false;
+            draggableElement.style.cursor = 'grab';
+        }
     });
 });
 
